@@ -11,16 +11,14 @@
 <div class="container">
 
     <h2>Registro</h2>
-    <form action="registro.php" method="post">
-        <input type="text" name="username" placeholder="Usuário" required>
-        <input type="password" name="password" placeholder="Senha" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="tel" name="tel" placeholder="Telefone" required>  
-        <button type="submit">Registrar-se</button>
+    <form action="registro.php" method="POST">
+        <input type="text" name="nome" id="nome" placeholder="Usuário" class="inputUser" required>
+        <input type="text" name="senha" id="senha" placeholder="Senha" class="inputUser" required>
+        <input type="text" name="email" id="email" placeholder="Email" class="inputUser" required>
+        <input type="telefone" name="telefone" id="telefone" placeholder="Telefone" class="inputUser" required>  
+        <input type="submit" name="submit" id="submit">Registrar-se</button>
     </form>
-    <div class="register-link">
-        <a href="login.html">Login</a>
-    </div>
+
 </div>
 
 </body>
