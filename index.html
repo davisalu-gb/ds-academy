@@ -1,84 +1,113 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DS-ACADEMY</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-<body>
-<!-- barra de navegaçao -->
-<nav class="navbar">
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <span class="openbtn" onclick="openNav()"><i class="fas fa-bars"></i></span>
-        </li>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Início</a>
-        </li>
-        <li class="nav-item">
-            <a href="login.html" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
-        </li>
-        <li class="nav-item">
-            <a href="treinos.html" class="nav-link"><i class="fas fa-dumbbell"></i> Treinos</a>
-        </li>
-        
-    </ul>
-</nav>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./vars.css" />
+    <link rel="stylesheet" href="./style.css" />
 
-<div class="sidenav" id="mySidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#"><i class="fas fa-user"></i> Cadastro</a>
-  <a href="#"><i class="fas fa-calendar-alt"></i> Agendamento</a>
-  <a href="#"><i class="fas fa-clock"></i> Horários</a>
-  <a href="#"><i class="fas fa-credit-card"></i> Pagamento</a>
-  <a href="#"><i class="fas fa-dumbbell"></i> Treinamento</a>
-  <a href="#"><i class="fas fa-chart-line"></i> Progresso</a>
-  <a href="#"><i class="fas fa-bell"></i> Notificações</a>
-  <a href="#"><i class="fas fa-headset"></i> Atendimento</a>
-</div>
+    <style>
+      a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        appearance: none;
+        background: none;
 
-<div class="conteudo">
-    <h1>Bem-vindo à DS-ACADEMY</h1>
-    <p>Aqui você encontrará informações sobre nossa academia, nossos serviços e nossos treinos.</p>
-    <p>Entre em contato conosco para mais detalhes e para agendar sua primeira sessão de treino!</p>
-</div>
-
-<div class="final-de-pagina">
-    <footer class="footer">
-        <div class="social-icons">
-            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="register">
+      <img class="image-2" src="image-20.png" />
+      <div class="frame-44">
+        <div class="frame-45">
+          <div class="frame-34">
+            <div class="registro">Registro</div>
+            <div class="group-2">
+              <div class="j-possui-uma-conta-de-usu-rio">
+                Já possui uma conta de usuário?
+              </div>
+              <div class="entrar-na-conta-login">
+                <span>
+                  <span class="entrar-na-conta-login-span">
+                    Entrar na conta
+                  </span>
+                  <span class="entrar-na-conta-login-span2">Login !</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <form action="registro.php" method="POST">
+          <div class="group-37">
+            <div class="email">Email</div>
+            <div class="enter-your-email-address"><input type="email" id="email" name="email" placeholder="Digite seu e-mail" class="inputUser" required></div>
+            <div class="rectangle-8"></div>
+            <div class="message-1">
+              <img class="group" src="group0.svg" />
+            </div>
+          </div>
+          <div class="group-43">
+            <div class="group-40">
+              <div class="username">Usuário</div>
+              <div class="enter-your-user-name"><input type="text" id="nome" name="nome" placeholder="Digite seu nome de usuário" class="inputUser" required></div>
+              <div class="rectangle-8"></div>
+            </div>
+            <img class="user-1" src="user-10.svg" />
+          </div>
+          <div class="group-41">
+            <div class="senha">Senha</div>
+            <div class="rectangle-9"></div>
+            <div class="group-35">
+              <div class="senha-do-usu-rio"><input type="text" id="senha" name="senha" placeholder="Digite a sua senha" class="inputUser" required></div>
+              <div class="padlock-1">
+                <img class="group2" src="group1.svg" />
+                <img class="group3" src="group2.svg" />
+              </div>
+            </div>
+            <div class="invisible-1">
+              <img class="group4" src="group3.svg" />
+            </div>
+          </div>
+          <div class="group-44">
+            <div class="telefone">Telefone</div>
+            <div class="rectangle-92"></div>
+            <div class="group-352">
+              <div class="digite-o-seu-telefone"><input type="tel" id="telefone" name="telefone" placeholder="Digite seu numero" class="inputUser" required></div>
+              <div class="padlock-12">
+                <div class="group6">
+                  <img class="image-3" src="image-30.png" />
+                </div>
+              </div>
+            </div>
+            <div class="invisible-12">
+              <img class="group7" src="group6.svg" />
+            </div>
+          </div>
+          <div class="group-39">
+            <div class="frame-47">
+              <div class="frame-46">
+                <input class="registrar-se" type="submit" name="submit" id="submit" value="Registrar-se"></button>
+              </div>
+            </div>
+          </div>
+        </form>
         </div>
-        <p>&copy; 2024 DS-ACADEMY. Todos os direitos reservados.</p>
-    </footer>
-</div>
-
-<script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-
-function abrirInicio() {
-    alert("Abrir página de Início");
-}
-
-function abrirLogin() {
-    alert("Abrir página de Login");
-}
-
-function abrirTreinos() {
-    alert("Abrir página de Treinos");
-}
-</script>
-<!-- barra de navegaçao -->
-</body>
+      </div>
+    </div>
+  </body>
 </html>
