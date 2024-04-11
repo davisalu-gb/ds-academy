@@ -2,6 +2,10 @@
     "functions": {
       "api/*.php": {
         "runtime": "vercel-php@0.4.0"
+      },
+      "api/*.js": {
+        "runtime": "nodejs14.x"
       }
     }
   }
+  
