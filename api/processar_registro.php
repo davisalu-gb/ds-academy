@@ -42,6 +42,8 @@ try {
     }
 } catch (mysqli_sql_exception $e) {
     echo "Erro000: " . $e->getMessage();
+} catch (Exception $e) {
+    echo "Erro000: " . $e->getMessage();
 }
 
 // Fecha a conexão com o banco de dados
