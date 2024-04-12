@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['submit'])) {
-    include_once('config.php'); // Corrija o caminho para incluir o arquivo config.php
+    include_once('/var/task/user/api/config.php'); // Corrija o caminho para incluir o arquivo config.php
 
     $nome = $_POST['nome'];
     $senha = $_POST['senha'];
