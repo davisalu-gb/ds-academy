@@ -1,14 +1,16 @@
 <?php
-    if(isset($_POST['submit']))
-    {
+if(isset($_POST['submit'])) {
+    include_once('config.php'); // Corrija o caminho para incluir o arquivo config.php
 
-        include_once('config.php');
+    $nome = $_POST['nome'];
+    $senha = $_POST['senha'];
+    $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
 
-        $nome = $_POST['nome'];
-        $senha = $_POST['senha'];
-        $email = $_POST['email'];
-        $telefone = $_POST['telefone']
-
-        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,telefone) VALUES ('$nome','$senha','$email','$telefone')");
-    }
+    // Prevenção contra injeção SQL - use prepared statements
+    $stmt = $conexao->prepare("INSERT INTO usuarios (nome, senha, email, telefone) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $nome, $senha, $email, $telefone);
+    $stmt->execute();
+    $stmt->close();
+}
 ?>
