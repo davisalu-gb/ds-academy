@@ -2,7 +2,7 @@
 $db_Host = 'localhost';
 $db_Username = 'root';
 $db_Password = ''; // Insira sua senha do MySQL aqui, se aplicável
-$db_Name = 'formulario_registro';
+$db_Name = 'formulario-registro';
 
 // Conexão com o banco de dados
 $conexao = new mysqli($db_Host, $db_Username, $db_Password, $db_Name);
