@@ -1,7 +1,12 @@
 <?php
-if(isset($_POST['submit'])) {
-    include_once('api\config.php'); // Corrija o caminho para incluir o arquivo config.php
+include_once('config.php'); // Corrija o caminho para incluir o arquivo config.php
 
+// Verifique se a conexão com o banco de dados foi estabelecida corretamente
+if(!$conexao) {
+    die("Erro na conexão com o banco de dados");
+}
+
+if(isset($_POST['submit'])) {
     $nome = $_POST['nome'];
     $senha = $_POST['senha'];
     $email = $_POST['email'];
@@ -14,3 +19,4 @@ if(isset($_POST['submit'])) {
     $stmt->close();
 }
 ?>
+
