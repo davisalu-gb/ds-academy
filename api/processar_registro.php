@@ -1,64 +1,41 @@
 <?php
-// Verifica se o formulário foi submetido
+$servername = "localhost";
+$username = "root";
+$password = '';
+$dbname = "formulario_registro";
 
-if ($_POST['submit']) {
-    // Conexão com o banco de dados
-    $servername = "localhost";
-    $username = "root";
-    $password = '';
-    $dbname = "formulario_registro";
-
+try {
+    // Cria a conexão
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Verifica a conexão
     if ($conn->connect_error) {
-        die("Conexão falhou: " . $conn->connect_error);
+        throw new mysqli_sql_exception("Conexão falhou: " . $conn->connect_error);
     }
 
-    // Prepara os dados para inserção no banco de dados
-    $nome = $_POST['nome'];
-    $senha = $_POST['senha'];
-    $email = $_POST['email'];
-    $telefone = $_POST['telefone'];
+    // Verifica se o formulário foi submetido
+    if (isset($_POST['submit'])) {
+        // Prepara os dados para inserção no banco de dados
+        $nome = $_POST['nome'];
+        $senha = $_POST['senha'];
+        $email = $_POST['email'];
+        $telefone = $_POST['telefone'];
 
-    // Prepara a consulta SQL
-    $sql = "INSERT INTO usuarios (nome, senha, email, telefone) VALUES ('$nome', '$senha', '$email', '$telefone')";
+        // Prepara a consulta SQL
+        $sql = "INSERT INTO usuarios (nome, senha, email, telefone) VALUES ('$nome', '$senha', '$email', '$telefone')";
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Registro inserido com sucesso!";
-    } else {
-        echo "Erro ao inserir registro: " . $conn->error;
+        if ($conn->query($sql) === TRUE) {
+            echo "Registro inserido com sucesso!";
+        } else {
+            throw new mysqli_sql_exception("Erro ao inserir registro: " . $conn->error);
+        }
     }
+} catch (mysqli_sql_exception $e) {
+    echo "Erro: " . $e->getMessage();
+}
 
-    // Fecha a conexão com o banco de dados
+// Fecha a conexão com o banco de dados
+if(isset($conn)) {
     $conn->close();
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Registro</title>
-</head>
-<body>
-    <h2>Registro de Usuário</h2>
-    <form action="/api\processar_registro.php" method="POST">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required><br><br>
-
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required><br><br>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <label for="telefone">Telefone:</label>
-        <input type="tel" id="telefone" name="telefone"><br><br>
-
-        <input class="registrar-se" type="submit" name="submit" id="submit" value="Registrar-se"></button>
-    </form>
-</body>
-</html>
-
