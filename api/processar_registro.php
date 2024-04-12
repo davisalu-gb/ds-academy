@@ -1,16 +1,26 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = '';
-$dbname = "formulario_registro";
+$password = ''; // Você pode substituir isso por variáveis de ambiente mais seguras
+
+// Inclui a classe mysqli_sql_exception
+if (!class_exists('mysqli_sql_exception', false)) {
+    require_once 'path_para_mysqli_sql_exception'; // Substitua 'path_para_mysqli_sql_exception' pelo caminho real do arquivo mysqli_sql_exception.php
+}
 
 try {
     // Cria a conexão
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $username, $password);
 
     // Verifica a conexão
     if ($conn->connect_error) {
         throw new mysqli_sql_exception("Conexão falhou: " . $conn->connect_error);
+    }
+
+    // Seleciona o banco de dados
+    $dbname = "formulario_registro";
+    if (!$conn->select_db($dbname)) {
+        throw new mysqli_sql_exception("Erro ao selecionar o banco de dados: " . $conn->error);
     }
 
     // Verifica se o formulário foi submetido
