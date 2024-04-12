@@ -4,7 +4,7 @@ $username = "root";
 $password = ''; // Você pode substituir isso por variáveis de ambiente mais seguras
 
 // Inclui a classe mysqli_sql_exception
-if (!class_exists('api/mysqli_sql_exception', false)) {
+if (!class_exists('mysqli_sql_exception', false)) {
     require_once 'path_para_mysqli_sql_exception'; // Substitua 'path_para_mysqli_sql_exception' pelo caminho real do arquivo mysqli_sql_exception.php
 }
 
