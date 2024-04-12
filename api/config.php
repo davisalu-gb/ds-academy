@@ -8,8 +8,8 @@ $db_Name = 'formulario_registro';
 $conexao = new mysqli($db_Host, $db_Username, $db_Password, $db_Name);
 
 // Verifica se ocorreu algum erro na conexão
-if($conexao->connect_errno) {
-    echo "Erro na conexão: " . $conexao->connect_error;
-    exit(); // Saia do script em caso de erro na conexão
+if($conexao->connect_error) {
+    // Se ocorrer um erro na conexão, exiba uma mensagem de erro e interrompa o script
+    die("Erro na conexão: " . $conexao->connect_error);
 }
 ?>
