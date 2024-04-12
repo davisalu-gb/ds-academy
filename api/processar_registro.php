@@ -57,7 +57,7 @@ if ($_POST['submit']) {
         <label for="telefone">Telefone:</label>
         <input type="tel" id="telefone" name="telefone"><br><br>
 
-        <input type="submit" value="Registrar">
+        <input type="submit" name="enviar" value="Enviar">
     </form>
 </body>
 </html>
