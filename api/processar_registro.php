@@ -1,6 +1,7 @@
 <?php
 // Verifica se o formulário foi submetido
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+if ($_POST['submit']) {
     // Conexão com o banco de dados
     $servername = "localhost";
     $username = "root";
