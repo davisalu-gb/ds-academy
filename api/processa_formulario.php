@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "banco-de-dados";
+$database = 'banco-de-dados';
 
 // Estabelecer conexão
 $conn = new mysqli($servername, $username, $password, $database);
@@ -21,12 +21,17 @@ $tipo = $_POST['tipo'];
 $dataCriacao = date('Y-m-d');
 
 // Preparar e executar a query SQL para inserir os dados
-$sql = "INSERT INTO Usuario (Nome, Email, Senha, Tipo, DataCriacao) VALUES ('$nome', '$email', '$senha', '$tipo', '$dataCriacao')";
+$sql = "INSERT INTO adm (Nome, Email, Senha, Tipo, DataCriacao) VALUES ('$nome', '$email', '$senha', '$tipo', '$dataCriacao')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Registro criado com sucesso!";
 } else {
-    echo "Erro ao criar registro: " . $conn->error;
+    // Verificar se o erro é devido a uma entrada duplicada
+    if ($conn->errno == 1062) {
+        echo "Erro: Esta entrada já está sendo utilizada.";
+    } else {
+        echo "Erro ao criar registro: " . $conn->error;
+    }
 }
 
 // Fechar a conexão com o banco de dados
